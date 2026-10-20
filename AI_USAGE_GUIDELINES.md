@@ -24,8 +24,6 @@
 
 ## Section 3 - How we will handle disagreements about AI output quality
 
-- If two or more teammates disagree with AI-generated code or an AI-generated idea and provide evidence, the output will be paused and reviewed.
-- Evidence may include test results, project requirements, technical documentation, or a reproducible example. Personal preference or voting alone does not count as evidence.
+- Disagreements about AI-generated code or ideas follow the shared [Team Charter decision process](PROJECT_OVERVIEW.md#11-decision-process), including its 48-hour resolution window, Code Steward recusal rule, and decision-recording requirements. This section adds AI-specific review checks; it does not define a separate decision process.
+- Any teammate may raise an objection with a reason and supporting evidence under that process. The disputed output will be paused and reviewed before it is accepted or relied on.
 - The output will be rejected if it fails tests, conflicts with project requirements, contains factual errors, or cannot be explained by the contributor.
-- If the disagreement remains after reviewing the evidence, the Code Steward makes the final decision for both code and feature ideas.
-- The Code Steward's final decision and reason will be recorded in `DECISIONS.md`.
