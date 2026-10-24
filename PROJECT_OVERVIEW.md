@@ -37,7 +37,8 @@ A piece of work is done only when every applicable item below is true.
 
 **Meetings**
 
-- The team holds a Discord voice meeting every two weeks, currently on Friday at 19:00, to review progress, assign issues, and resolve open questions.
+- Each member submits a weekly text report on Friday, covering what is done, what is pending, blockers, solutions, and open issues.
+- The team holds a stand-up meeting in class every two weeks to assign issues and resolve open questions.
 - Extra meetings can be called when needed, for example before a checkpoint deadline.
 
 **Response times**
@@ -133,7 +134,7 @@ A Markdown handoff document saved in the repository, for example `handoffs/2026-
 - **Next steps:** what remains and what the receiver should do first
 - **Open questions:** information the AI could not find in the inputs, marked for the giver to fill in instead of guessed
 - **Review record:** who corrected the draft and who confirmed it
-- **Quiz**: key questions on what and why the project, used to test if the new member really understands all the issues.
+- **Quiz:** key questions on the What and the Why of the work, so the receiver can check whether they really understand the handoff.
 
 Each item links to its source, such as a commit, a PR, or a quoted message, so that reviewers can check it against the original.
 
