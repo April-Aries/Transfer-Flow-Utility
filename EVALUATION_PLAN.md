@@ -46,7 +46,7 @@ We will know our tool works if, when two people hand off work with it, the recei
 4. Both participants rate how easy the handoff was to communicate and understand, on a scale from 1 (very hard) to 5 (very easy).
 5. We hold a short interview with both participants about what was clear, what was missing, and how the handoff felt. After their second session, we also ask which of the two handoffs felt easier and why.
 
-**Measures**
+**Metrics**
 
 - Receiver's quiz score, graded by team members against the answer key
 - Number of clarification questions the receiver asks during the handoff

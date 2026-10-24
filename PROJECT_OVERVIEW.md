@@ -4,7 +4,7 @@
 
 ### 1.1 Decision Process
 
-- **Default: the owner decides.** The person responsible for a piece of work, such as the PR author, makes the decisions within that work. Teammates can review and comment through the PR or the team channel.
+- **Default: the owner decides.** The person responsible for a piece of work, such as the PR author, makes the decisions within that work. Teammates can review and comment through the PR or the team channel within 24 hours.
 - **Raising a disagreement.** Any teammate can object to a decision. The objection must include a reason and supporting evidence, such as test results, project requirements, technical documentation, user feedback, or a reproducible example. Personal preference alone does not block a decision.
 - **Resolving a disagreement.** The people involved discuss the evidence. If they cannot agree within 48 hours of the objection, the current Code Steward makes the final decision.
 - **When the Code Steward is part of the disagreement.** The other three members decide by majority vote.
@@ -43,7 +43,7 @@ A piece of work is done only when every applicable item below is true.
 **Response times**
 
 - Regular messages: reply within 24 hours.
-- PR review requests: review within 48 hours.
+- PR review requests: review within 48 hours, leave the first 24 hours for other team members to comment unless all the members explicitly agree.
 - Urgent messages: start the message with `[URGENT]` and tag everyone. Members reply within 6 hours.
 
 **When a member cannot be reached**
@@ -82,15 +82,15 @@ This information usually exists only in each member's head or in scattered chat 
 - **Cost.** The team spent extra time reconciling the inconsistencies at the end. Finding out what others were thinking or how they had done something required LINE messages and waiting for replies, which slowed things down.
 - **Current approach.** No specific solution. Because it was a one-time course project, the team absorbed the cost by spending extra time.
 
-**Interviewee B: [background] ([how the conversation took place])**
+**Interviewee B: university student, software engineering course project (online text discussion)**
 
-<!-- TODO (teammate): fill in using the same structure as Interviewee A.
-Only write what the interviewee actually said. Do not add details or opinions they did not express.
-- Context: role, team size, project, communication tools, and shared documents
-- What went wrong: a concrete case, split into idea alignment and work handoff where possible, with a specific example of what was misunderstood or unclear
-- Cost: extra time, rework, or other impact (only numbers the interviewee gave)
-- Current approach: how they handle it today and which tools they use
--->
+- **Context.** As the student PM of a 17-member team developing an online mobile game, B managed the project from ideation through presentation. B ran weekly in-person meetings, using Discord and HackMD for collaboration. However, the large team size created high communication costs. Furthermore, with four international students from Japan and Indonesia, B frequently faced alignment and consensus challenges due to cognitive and cultural gaps.
+- **What went wrong.**
+  - *Low Meeting Efficiency*: Most members were reluctant to participate during in-person meetings, resulting in low efficiency and making it difficult for engaged members to reach a consensus.
+  - *Misaligned Consensus*: Compounded by language barriers, teammates often misunderstood shared decisions, which ultimately caused actual development outcomes to deviate from initial expectations.
+  - *Unclear Documentation*: Documents typically contained only brief summaries, leaving most members unable to understand the context, discussion process, or reasoning behind each decision after meetings.
+- **Cost.** B had to spend extra time verifying that all sub-teams shared the same understanding and agreed on decisions regarding each topic discussed. Sub-team leaders also had to constantly monitor whether members' actual implementations aligned with what had been agreed upon. Since most members were hesitant to speak up, the PM often had to call on individuals one by one to check their thoughts even during in-person meetings.
+- **Current approach.** Instructed team leaders to pay close attention to members who frequently misunderstood meeting decisions and provided timely support. Incorporated concrete examples into documentation to prevent misinterpretation. Increased communication frequency to regularly check in on each team's development progress.
 
 ### 2.3 Why Existing Tools Fall Short
 
@@ -99,7 +99,7 @@ Only write what the interviewee actually said. Do not add details or opinions th
 | **Chat apps** (LINE, Discord) | Fast, and everyone already uses them | Decisions and status are scattered across long message histories with no structure. To learn what a teammate decided or did, the receiver has to ask and wait for a reply, as Interviewee A described. |
 | **Planning documents** (Google Docs, Notion, HackMD) | Give the team a shared starting point | Usually written once at the start. In Interviewee A's team, the initial plan was the only shared document, so later decisions and changes were never written down. |
 | **Meetings** | Allow real-time discussion and clarification | Require everyone to be available at once, and what was agreed is often not recorded. Members who missed the meeting, or who later take over the work, do not get the reasoning. |
-| **Issue trackers** (GitHub Issues, Jira) | Track which tasks exist and who owns them | Focus on task status (the What). The reasons behind decisions (the Why) are not a required part of an issue, and many course teams do not use a tracker at all. |
+| **Issue trackers** (GitHub Issues, Jira, Trello) | Track which tasks exist and who owns them | Focus on task status (the What). The reasons behind decisions (the Why) are not a required part of an issue, and many course teams do not use a tracker at all. |
 | **General AI assistants** (ChatGPT, meeting summary tools) | Can quickly condense long discussions | Output has no fixed structure for decisions, reasons, status, and next steps. Nobody is required to check it for errors, and when each member summarizes separately, the team does not end up with one agreed version. |
 
 **The gap.** None of these approaches produces, at the moment of handoff, a single record that covers both the Why and the What, follows a consistent structure, and has been checked by a human before the team relies on it.
@@ -133,6 +133,7 @@ A Markdown handoff document saved in the repository, for example `handoffs/2026-
 - **Next steps:** what remains and what the receiver should do first
 - **Open questions:** information the AI could not find in the inputs, marked for the giver to fill in instead of guessed
 - **Review record:** who corrected the draft and who confirmed it
+- **Quiz**: key questions on what and why the project, used to test if the new member really understands all the issues.
 
 Each item links to its source, such as a commit, a PR, or a quoted message, so that reviewers can check it against the original.
 
@@ -140,20 +141,16 @@ Each item links to its source, such as a commit, a PR, or a quoted message, so t
 
 The two roles are the **giver**, who hands off the work, and the **receiver**, who takes it over or integrates it.
 
-```
-Giver                         AI skill                      Receiver
-  |                              |                              |
-  |-- 1. run skill + inputs ---->|                              |
-  |<-- 2. draft with sources ----|                              |
-  |      and open questions      |                              |
-  |                              |                              |
-  |-- 3. correct draft, fill gaps, open PR -------------------->|
-  |                              |                              |
-  |<-------------- 4. comment on unclear or missing points -----|
-  |-- 5. answer and update document --------------------------->|
-  |         (repeat 4-5 until nothing is unclear)               |
-  |                              |                              |
-  |<----------------------- 6. approve PR, handoff complete ----|
+```mermaid
+sequenceDiagram
+    autonumber
+    Giver ->> AI skill: run skill and input
+    AI skill ->> Giver: Draft with sources and open questions
+    Giver ->> Receiver: Correct draft, fill gaps, open PR
+    Receiver ->> Giver: Comment on unclear or missing points
+    Giver ->> Receiver: Answer and update document
+    Note over Giver,Receiver: (repeat 4-5 until nothing is unclear)
+    Receiver ->> Giver: Approve PR, handoff complete
 ```
 
 1. The giver runs the skill and provides the inputs.
