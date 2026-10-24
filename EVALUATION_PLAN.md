@@ -20,7 +20,7 @@
 
 ### Success Definition
 
-We will know our tool works if, when two people hand off work with it, the receiver can correctly state each decision and its reason, the completed work, the current status, and the next step, while asking fewer clarification questions than in a comparable handoff without the tool, and the final handoff document contains no critical factual errors.
+We will know our tool works if, compared with the baseline condition, the receiver achieves an equal or higher quiz score, asks an equal or lower number of clarification questions, and completes the handoff in less total time, while the final handoff document contains no critical factual errors.
 
 ### Target Users
 
@@ -29,7 +29,7 @@ We will know our tool works if, when two people hand off work with it, the recei
 
 ### Method
 
-**Design.** Each pair completes two handoff sessions: one with our tool and one without it (the baseline). In the baseline, the giver hands off the work in any way they normally would, such as a written message or a verbal explanation. To reduce order and scenario effects, the two pairs use the tool in opposite order.
+**Design.** Each pair completes two handoff sessions: one with our tool and one without it (the baseline). In the baseline, the giver manually completes the same structured handoff template used in the tool condition, without assistance from the Transfer Flow Utility or another AI tool. In both conditions, the giver then conducts a brief handoff meeting with the receiver for approximately 10 minutes.
 
 | Pair | Session 1 | Session 2 |
 |---|---|---|
@@ -51,7 +51,7 @@ We will know our tool works if, when two people hand off work with it, the recei
 - Receiver's quiz score, graded by team members against the answer key
 - Number of clarification questions the receiver asks during the handoff
 - Number of factual errors in the final handoff document, and how many AI draft errors the giver caught during review
-- Total handoff time
+- Total handoff time, including document preparation, review and correction, and the brief handoff meeting
 - Ease ratings from both participants, and which session they preferred
 - Participants' comments from the interview
 
@@ -69,13 +69,14 @@ We will know our tool works if, when two people hand off work with it, the recei
 
 We will consider the tool successful only if all of the following hold:
 
-- In both pairs, the receiver scores higher on the quiz with the tool than without it, and correctly states the reason for every decision in the answer key when using the tool.
-- In both pairs, the receiver asks fewer clarification questions with the tool than without it.
+- In both pairs, the receiver achieves an equal or higher quiz score with the tool than in the baseline condition.
+- In both pairs, the receiver asks an equal or lower number of clarification questions with the tool than in the baseline condition.
+- In both pairs, the total handoff time is shorter with the tool than in the baseline condition.
 - No final handoff document produced with the tool contains a critical factual error, such as a wrong decision, a wrong reason, or a wrong status.
 
 If any of these fail, we will treat the tool as not yet working and use the session recordings and interviews to find out why.
 
-**Supporting evidence.** Participants' experience matters to us: a tool that makes handoffs feel easier to communicate and understand is more likely to be used. We will report the ease ratings, which session each participant preferred, and their reasons, as supporting evidence alongside the criteria above. They are not pass criteria because, with four participants, ratings alone cannot distinguish a real improvement from personal preference. Handoff time is also reported but is not a pass criterion, because the review steps add time by design.
+**Supporting evidence.** Participants' experience matters to us: a tool that makes handoffs feel easier to communicate and understand is more likely to be used. We will report the ease ratings, which session each participant preferred, and their reasons, as supporting evidence alongside the criteria above. They are not pass criteria because, with four participants, ratings alone cannot distinguish a real improvement from personal preference. 
 
 With only two pairs, these results can show whether the tool works in realistic handoffs, but they cannot show that the effect holds for all teams. We will report the raw results for every session so readers can judge them directly.
 
