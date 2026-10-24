@@ -1,6 +1,9 @@
 ## What this PR does
 [One sentence]
 
+## Related issue
+Closes #[issue number]
+
 ## Decision (required if a significant choice was made)
 Decision: [what was chosen]
 Why: [what problem this solves or what alternative it beat]
