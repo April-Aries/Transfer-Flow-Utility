@@ -11,3 +11,7 @@
 ## 2026-10-20 - Build the tool as an agent skill with PR-based review
 **What:** The tool is an agent skill run through Codex or Claude Code in the team's repository. It drafts a Markdown handoff document from chat history, Git history, notes, and the giver's input. The giver corrects the draft and opens a PR, and the receiver comments until nothing is unclear, then approves.
 **Why:** This keeps humans in charge of accuracy and of deciding when a handoff is complete, and uses the PR review flow the team already follows. The AI only drafts, links sources, and lists missing information instead of guessing.
+
+## 2026-11-21 - Code Steward interation
+What: We decide to take turns in order. Namely, everyone becomes code steward, review 2 PRs and merge it into main, then rotate to the next one. (Luke -> Eric -> Freddy -> 哲葦)
+Why: The course requires every team member be code steward at least twice accross the whole project.
