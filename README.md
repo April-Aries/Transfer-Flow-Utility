@@ -24,6 +24,29 @@ The tool will be an agent skill, run through Codex or Claude Code in the team's 
 
 AI drafts the handoff document, links sources, and flags missing information and possible conflicts. Humans correct and complete the draft, resolve conflicts, and decide when a handoff is complete. See the [Draft Evaluation Plan](EVALUATION_PLAN.md) for the full boundary.
 
+## Project Architecture
+
+```
+.
+├── CONTRIBUTORS.md               # All contributors to this project
+├── docs                          # Documents
+│   ├── AI_USAGE_GUIDELINES.md
+│   ├── DECISIONS.md
+│   ├── EVALUATION_PLAN.md
+│   └── PROJECT_OVERVIEW.md
+├── examples                      # Example data for tests / demonstration
+├── README.md
+├── skills                        # Source file: skills
+│   ├── SKILL_INDEX.md
+│   ├── transfer-prepare
+│   │   └── SKILL.md
+│   ├── transfer-quiz
+│   │   └── SKILL.md
+│   └── transfer-review
+│       └── SKILL.md
+└── tests                         # Test cases and programs
+```
+
 ## Project Documents
 
 - [Project Overview](./docs/PROJECT_OVERVIEW.md): team charter, problem statement, and interaction design
