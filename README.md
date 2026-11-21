@@ -26,8 +26,8 @@ AI drafts the handoff document, links sources, and flags missing information and
 
 ## Project Documents
 
-- [Project Overview](PROJECT_OVERVIEW.md): team charter, problem statement, and interaction design
-- [AI Usage Guidelines](AI_USAGE_GUIDELINES.md)
-- [Draft Evaluation Plan](EVALUATION_PLAN.md)
-- [Decisions Log](DECISIONS.md)
+- [Project Overview](./docs/PROJECT_OVERVIEW.md): team charter, problem statement, and interaction design
+- [AI Usage Guidelines](./docs/AI_USAGE_GUIDELINES.md)
+- [Draft Evaluation Plan](./docs/EVALUATION_PLAN.md)
+- [Decisions Log](./docs/DECISIONS.md)
 - [Contributors](CONTRIBUTORS.md)
