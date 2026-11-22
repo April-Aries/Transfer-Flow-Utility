@@ -21,3 +21,8 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** The skills are split into modules, so they need one shared structure to read and write the same document. A short template keeps handoff documents easy to read. Numbered decisions and checkbox Open Questions let the skills refer to items and check whether the draft is ready.
 **Alternative rejected:** Instructions inside every section of the template (makes each handoff document longer). Generating the quiz in the first draft (the giver corrects the draft first, so the quiz would test content that may change).
 **Led by:** Eric
+
+## 2026-11-23 - Implement handoff preparation as a single skill
+**What:** I implement `transfer-prepare` as a single agent skill under `skills/transfer-prepare/`. It gathers information from chat history, Git history, meeting notes, and the giver's notes. The skill extracts the Why (decisions and reasons) and What (completed work, current status, and next steps), tracks sources, and marks missing or conflicting information as Open Questions instead of fabricating. It then generates a handoff draft following the shared `skills/HANDOFF_TEMPLATE.md`. The Quiz section is left as Pending for the separate `transfer-quiz` skill.
+**Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
+**Led by:** Che-Wei
