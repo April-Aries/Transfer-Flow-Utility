@@ -1,10 +1,10 @@
---- 
+---
 name: transfer-prepare
 description: Create a structured, evidence-based handoff draft from project chats history, Git history, meeting notes and documents, and the giver's own notes. Use when a developer needs to transfer work to a teammate.
 ---
 
 
-# Transfer Flow Utility
+# Transfer prepare
 
 ## Goal
 
