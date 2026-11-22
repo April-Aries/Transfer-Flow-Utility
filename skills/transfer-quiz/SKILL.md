@@ -18,7 +18,7 @@ The skill has two modes:
 2. Find the handoff document. Handoff documents live in `handoffs/` and are named like `handoffs/2026-11-02-training-pipeline.md`.
    - If the user names a file or a PR, use it.
    - Otherwise, list the handoff files changed on the current branch, for example with `git diff --name-only origin/main...HEAD -- handoffs/`. If exactly one file is found, confirm it with the user. If none or several are found, ask the user which one.
-3. Read the whole document before doing anything else.
+3. Read the whole document before doing anything else. Its structure follows `skills/HANDOFF_TEMPLATE.md`.
 
 ## Generate mode (giver)
 
@@ -26,8 +26,8 @@ The skill has two modes:
 
 The quiz tests the final content of the handoff, so the content must be settled first.
 
-- If the **Open questions** section still has unanswered items, tell the giver which ones and ask them to answer those first. Continue only if the giver says the remaining items are not important for the receiver.
-- If the document already has a Quiz section, this is a revision. Follow G6 instead of writing a new quiz from scratch.
+- If the **Open Questions** section still has unresolved items (`- [ ]`), tell the giver which ones and ask them to answer those first. Continue only if the giver says the remaining items are not important for the receiver.
+- If the Quiz section already has questions, instead of the `Pending` placeholder, this is a revision. Follow G6 instead of writing a new quiz from scratch.
 
 ### G2. Choose what to test
 
@@ -70,14 +70,14 @@ Rules for open-ended questions:
 
 1. Show the giver the full draft: questions, options, answer key, and sources.
 2. Ask the giver to check each question: Is the answer key correct? Is this point really important? Is anything important missing? The giver may change, add, or remove questions. The giver's version is final.
-3. Only after the giver approves, write the quiz into the document using the format in [Quiz format](#quiz-format). Do not change any other section of the document.
+3. Only after the giver approves, replace the content of the Quiz section with the quiz, using the format in [Quiz format](#quiz-format). Do not change any other section of the document.
 4. Tell the giver to commit and push the change to the handoff PR. Do not commit or push unless the giver asks you to.
 
 ### G6. Revise an existing quiz
 
 Run this when the giver has changed the document, for example after a receiver's quiz exposed an unclear part.
 
-1. Find which questions are affected by the change. Look at the latest **Quiz result** in the Review record section to see which questions were sent back to the giver.
+1. Find which questions are affected by the change. Look at the latest **Quiz result** in the Review Record section to see which questions were sent back to the giver.
 2. Rewrite only the affected questions, and add new questions only if the change added an important new point. Keep the total at 5 or fewer.
 3. Increase the quiz revision number by one, and set the `Revision` of each changed or new question to the new number. Do not change the revision of untouched questions.
 4. Review with the giver and write, as in G5.
@@ -86,10 +86,10 @@ Run this when the giver has changed the document, for example after a receiver's
 
 ### T1. Prepare
 
-1. Check that the document has a Quiz section. If not, tell the receiver that the giver has not written the quiz yet, and stop.
+1. Check that the Quiz section has questions. If it still says `Pending`, tell the receiver that the giver has not written the quiz yet, and stop.
 2. Ask the receiver whether they have read the whole handoff document. If not, ask them to read it first. They may keep the document open while answering. The quiz checks understanding, not memory.
 3. Decide which questions to give:
-   - If the Review record section has no Quiz result yet, give every question.
+   - If the Review Record section has no Quiz result yet, give every question.
    - If it has a previous Quiz result, give only the questions that were not passed in that result, and the questions whose `Revision` is higher than the revision recorded in that result.
 4. Read the answer key yourself. **Never show the answer key, the correct options, or the sources to the receiver before they have answered.**
 
@@ -140,7 +140,7 @@ Do not explain an unclear point to the receiver as if the receiver made the mist
 
 ### T5. Record the result
 
-1. Add a Quiz result to the **Review record** section using the format in [Quiz result format](#quiz-result-format). Do not change any other section of the document, and do not remove earlier Quiz results.
+1. Add a Quiz result to the **Review Record** section using the format in [Quiz result format](#quiz-result-format). Do not change any other section of the document, and do not remove earlier Quiz results.
 2. The quiz is **passed** only if every given question is either correct on the first answer or passed after explanation. If any question was sent to the giver, the status is **Waiting for giver**.
 3. Tell the receiver to commit and push the result to the handoff PR. Do not commit or push unless the receiver asks you to.
 4. Tell the receiver the next step:
@@ -179,7 +179,7 @@ In your own words, what must you check before you run the next training job, and
 ### Q1
 
 - **Answer:** B
-- **Source:** Decisions > "Batch size 16"
+- **Source:** Decisions > D1
 - **Explanation:** 32 was tried first and ran out of memory on the shared GPU, so 16 was chosen. Faster convergence (A) was not a reason.
 
 ### Q2
@@ -187,7 +187,7 @@ In your own words, what must you check before you run the next training job, and
 - **Key points:**
   1. The data path in `config.yaml` still points to the old dataset.
   2. Training on the old dataset would waste the GPU time the team booked.
-- **Source:** Current status > "Known issues"; Next steps > item 1
+- **Source:** Current Status > item 2; Next Steps > item 1
 - **Explanation:** The dataset was moved, but the config was not updated yet.
 
 </details>
@@ -195,7 +195,7 @@ In your own words, what must you check before you run the next training job, and
 
 ## Quiz result format
 
-Add one block per quiz attempt at the end of the Review record section.
+Add one block per quiz attempt at the end of the Review Record section.
 
 ````markdown
 ### Quiz result: 2026-11-02
@@ -217,4 +217,4 @@ Add one block per quiz attempt at the end of the Review record section.
 
 - The giver owns the questions and the answer key. You draft them, and the giver approves them.
 - In Take mode, you judge whether the receiver understood. The giver does not need to confirm it.
-- You never fill a gap in the document by guessing, never show the answer key before the receiver answers, never edit sections other than Quiz and Review record, and never approve or merge the PR.
+- You never fill a gap in the document by guessing, never show the answer key before the receiver answers, never edit sections other than Quiz and Review Record, and never approve or merge the PR.
