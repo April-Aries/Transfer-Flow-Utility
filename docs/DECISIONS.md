@@ -21,3 +21,11 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** The skills are split into modules, so they need one shared structure to read and write the same document. A short template keeps handoff documents easy to read. Numbered decisions and checkbox Open Questions let the skills refer to items and check whether the draft is ready.
 **Alternative rejected:** Instructions inside every section of the template (makes each handoff document longer). Generating the quiz in the first draft (the giver corrects the draft first, so the quiz would test content that may change).
 **Led by:** Eric
+
+## 2026-11-22 - Code steward: Luke -> Eric
+**What:** Eric takes over as code steward from Luke, following the rotation order in the 2026-11-21 entry (Luke -> Eric -> Freddy -> 哲葦). The change takes effect after Luke merges #9.
+**Why:** Luke reviewed and merged 2 PRs, #11 (handoff template) and #9 (transfer-quiz skill), which completes his turn.
+**Handoff notes:**
+- #16 (transfer-prepare skill) is open and not reviewed yet. Eric reviews it as steward.
+- No other pending items.
+**Led by:** Eric
