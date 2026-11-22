@@ -35,3 +35,8 @@ Why: The course requires every team member be code steward at least twice accros
 - #16 (transfer-prepare skill) is open and not reviewed yet. Eric reviews it as steward.
 - No other pending items.
 **Led by:** Eric
+
+## 2026-11-23 - Implement handoff preparation as a single skill
+**What:** I implement `transfer-prepare` as a single agent skill under `skills/transfer-prepare/`. It gathers information from chat history, Git history, meeting notes, and the giver's notes. The skill extracts the Why (decisions and reasons) and What (completed work, current status, and next steps), tracks sources, and marks missing or conflicting information as Open Questions instead of fabricating. It then generates a handoff draft following the shared `skills/HANDOFF_TEMPLATE.md`. The Quiz section is left as Pending for the separate `transfer-quiz` skill.
+**Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
+**Led by:** Che-Wei
