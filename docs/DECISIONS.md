@@ -15,3 +15,7 @@
 ## 2026-11-21 - Code Steward interation
 What: We decide to take turns in order. Namely, everyone becomes code steward, review 2 PRs and merge it into main, then rotate to the next one. (Luke -> Eric -> Freddy -> 哲葦)
 Why: The course requires every team member be code steward at least twice accross the whole project.
+
+## 2026-11-22 - Test cases design
+**What:** The test cases cover 3 skills (generate handoff documents, review handoff documents, generate quiz), with functionality and common AI failure (hallucination, sycophancy, prompt injection, jailbreak).
+**Why:** A skill rely on how AI uses it. It's necessary to test if the AI can handle the skills correctly and prevent the common failure.
