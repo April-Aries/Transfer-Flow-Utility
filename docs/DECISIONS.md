@@ -15,3 +15,9 @@
 ## 2026-11-21 - Code Steward interation
 What: We decide to take turns in order. Namely, everyone becomes code steward, review 2 PRs and merge it into main, then rotate to the next one. (Luke -> Eric -> Freddy -> 哲葦)
 Why: The course requires every team member be code steward at least twice accross the whole project.
+
+## 2026-11-22 - Shared handoff document template
+**What:** All transfer-* skills use one handoff template, `skills/HANDOFF_TEMPLATE.md`, saved as `handoffs/YYYY-MM-DD-<topic>.md`. It has a short header (giver, receiver, date, scope) and seven sections: Decisions (numbered D1, D2, ... with Why, Rejected, and Source), Completed Work, Current Status, Next Steps, Open Questions (`- [ ]` unresolved, `- [x]` resolved), Review Record, and Quiz (`Pending` until `transfer-quiz` writes it). Writing rules and source formats are kept in a comment or in the skills, not in the visible template.
+**Why:** The skills are split into modules, so they need one shared structure to read and write the same document. A short template keeps handoff documents easy to read. Numbered decisions and checkbox Open Questions let the skills refer to items and check whether the draft is ready.
+**Alternative rejected:** Instructions inside every section of the template (makes each handoff document longer). Generating the quiz in the first draft (the giver corrects the draft first, so the quiz would test content that may change).
+**Led by:** Eric
