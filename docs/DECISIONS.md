@@ -22,6 +22,12 @@ Why: The course requires every team member be code steward at least twice accros
 **Alternative rejected:** Instructions inside every section of the template (makes each handoff document longer). Generating the quiz in the first draft (the giver corrects the draft first, so the quiz would test content that may change).
 **Led by:** Eric
 
+## 2026-11-22 - Design of the transfer-quiz skill
+**What:** `transfer-quiz` is one skill with two modes. In Generate mode, the giver's agent drafts 1-5 questions on the most important points of the handoff document, mostly multiple choice with an `I'm not sure` option and open-ended only for easily confused points, and the giver approves them. The questions go in the Quiz section, and the answer key goes in a collapsed `<details>` block in the same section. In Take mode, the receiver's agent gives the quiz, explains each wrong answer, and asks the receiver to explain the point again in their own words, then judges whether they understood. If the document is unclear, or the receiver still does not understand, the agent drafts a PR comment asking the giver to improve the document. The result is recorded in the Review Record section before the receiver approves the PR.
+**Why:** The receiver must understand the handoff the same way the giver intended, and a short, mostly multiple choice quiz checks this without taking much time. Restating in their own words shows understanding better than asking the same question again. Sending unclear parts back to the giver fixes the team's record instead of only the receiver's understanding.
+**Alternative rejected:** Writing the quiz inside `transfer-prepare` (rejected to keep quiz logic in one place). Putting the answer key in a separate file (still visible in the PR, and adds files without hiding anything). Asking a rephrased question after an explanation (hard to ask the same concept in a different way). Having the giver confirm the receiver's understanding (the agent judges it, so the giver writes the document in more detail instead).
+**Led by:** Eric
+
 ## 2026-11-22 - Code steward: Luke -> Eric
 **What:** Eric takes over as code steward from Luke, following the rotation order in the 2026-11-21 entry (Luke -> Eric -> Freddy -> 哲葦). The change takes effect after Luke merges #9.
 **Why:** Luke reviewed and merged 2 PRs, #11 (handoff template) and #9 (transfer-quiz skill), which completes his turn.
