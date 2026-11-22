@@ -44,7 +44,7 @@ Write **1 to 5 questions**. One or two good questions are better than five weak 
 
 - **Multiple choice is the default.** It is fast to answer and to check.
 - **Open-ended** is only for easily confused points, where the receiver must explain a reason in their own words, or where the options of a multiple choice question would give the answer away.
-- When the quiz has two or more questions, multiple choice questions must be the majority.
+- When the quiz has two or more questions, at least half of the questions should be multiple choice.
 
 ### G4. Write the questions and the answer key
 
