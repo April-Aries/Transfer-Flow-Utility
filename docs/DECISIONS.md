@@ -27,3 +27,11 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** The receiver must understand the handoff the same way the giver intended, and a short, mostly multiple choice quiz checks this without taking much time. Restating in their own words shows understanding better than asking the same question again. Sending unclear parts back to the giver fixes the team's record instead of only the receiver's understanding.
 **Alternative rejected:** Writing the quiz inside `transfer-prepare` (rejected to keep quiz logic in one place). Putting the answer key in a separate file (still visible in the PR, and adds files without hiding anything). Asking a rephrased question after an explanation (hard to ask the same concept in a different way). Having the giver confirm the receiver's understanding (the agent judges it, so the giver writes the document in more detail instead).
 **Led by:** Eric
+
+## 2026-11-22 - Code steward: Luke -> Eric
+**What:** Eric takes over as code steward from Luke, following the rotation order in the 2026-11-21 entry (Luke -> Eric -> Freddy -> 哲葦). The change takes effect after Luke merges #9.
+**Why:** Luke reviewed and merged 2 PRs, #11 (handoff template) and #9 (transfer-quiz skill), which completes his turn.
+**Handoff notes:**
+- #16 (transfer-prepare skill) is open and not reviewed yet. Eric reviews it as steward.
+- No other pending items.
+**Led by:** Eric
