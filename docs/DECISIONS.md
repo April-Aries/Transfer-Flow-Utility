@@ -41,12 +41,12 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
 **Led by:** Che-Wei
 
-## 2026-11-23 - 
+## 2026-11-23 - Adopt the Lab 12 PR template
 **What:** Update and add some entries of PR template. The details are listed below
   * Discuss why we use this PR instead of only what
   * Specify the AI model we are using instead of only the tool name
-  * Explpicitly describe how AI was used with input, output and what human did
+  * Explicitly describe how AI was used with input, output and what human did
   * Add a checklist to click before issuing the PR
   * Add a notes section for reviewer
-**Why:** Lab 12 provide a PR template which includes some information that is valueable to be recorded and consider before issuing a PR
+**Why:** Lab 12 provides a PR template which includes some information that is valuable to be recorded and consider before issuing a PR
 **Led by:** Luke
