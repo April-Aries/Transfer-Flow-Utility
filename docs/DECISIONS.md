@@ -40,3 +40,9 @@ Why: The course requires every team member be code steward at least twice accros
 **What:** I implement `transfer-prepare` as a single agent skill under `skills/transfer-prepare/`. It gathers information from chat history, Git history, meeting notes, and the giver's notes. The skill extracts the Why (decisions and reasons) and What (completed work, current status, and next steps), tracks sources, and marks missing or conflicting information as Open Questions instead of fabricating. It then generates a handoff draft following the shared `skills/HANDOFF_TEMPLATE.md`. The Quiz section is left as Pending for the separate `transfer-quiz` skill.
 **Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
 **Led by:** Che-Wei
+
+## 2026-11-23 - Check existing issues and PRs before starting work
+**What:** Before starting any task, check both the open and closed issues and PRs to see whether someone has already started or finished the same work. If the work is already in progress, coordinate with that person instead of starting a separate version. If not, open an issue (or use the existing one), assign it to yourself before starting, and link it from the PR.
+**Why:** #16 (Che-Wei) and #20 (Freddy) both implemented `skills/transfer-prepare/SKILL.md` without knowing about each other. Issue #12 had no assignee, and #19 was opened after #16, so neither of them could see the overlap. #20 then had to be reworked into an improvement of the merged file.
+**Alternative rejected:** Coordinating only in the group chat (messages are easy to miss and leave no record in the repo).
+**Led by:** Eric
