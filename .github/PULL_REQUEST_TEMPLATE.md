@@ -25,6 +25,7 @@ Closes #[issue number]
 * [ ] Entries added in DECISIONS.md
 * [ ] Tests added or updated, and all tests pass locally (and in CI, if we have it)
 * [ ] Prompt changed? Before/after results from our prompt test suite are below
+* **Other checks (manual tries, screenshots):** [what you ran and what you saw, or N/A]
 
 ## Notes for reviewers
 
