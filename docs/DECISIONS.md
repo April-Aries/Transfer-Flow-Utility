@@ -40,3 +40,13 @@ Why: The course requires every team member be code steward at least twice accros
 **What:** I implement `transfer-prepare` as a single agent skill under `skills/transfer-prepare/`. It gathers information from chat history, Git history, meeting notes, and the giver's notes. The skill extracts the Why (decisions and reasons) and What (completed work, current status, and next steps), tracks sources, and marks missing or conflicting information as Open Questions instead of fabricating. It then generates a handoff draft following the shared `skills/HANDOFF_TEMPLATE.md`. The Quiz section is left as Pending for the separate `transfer-quiz` skill.
 **Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
 **Led by:** Che-Wei
+
+## 2026-11-23 - Adopt the Lab 12 PR template
+**What:** Update and add some entries of PR template. The details are listed below
+  * Discuss why we use this PR instead of only what
+  * Specify the AI model we are using instead of only the tool name
+  * Explicitly describe how AI was used with input, output and what human did
+  * Add a checklist to click before issuing the PR
+  * Add a notes section for reviewer
+**Why:** Lab 12 provides a PR template which includes some information that is valuable to be recorded and consider before issuing a PR
+**Led by:** Luke
