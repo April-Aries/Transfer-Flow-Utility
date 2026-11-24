@@ -41,6 +41,27 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
 **Led by:** Che-Wei
 
+## 2026-11-23 - Adopt the Lab 12 PR template
+**What:** Update and add some entries of PR template. The details are listed below
+  * Discuss why we use this PR instead of only what
+  * Specify the AI model we are using instead of only the tool name
+  * Explicitly describe how AI was used with input, output and what human did
+  * Add a checklist to click before issuing the PR
+  * Add a notes section for reviewer
+**Why:** Lab 12 provides a PR template which includes some information that is valuable to be recorded and consider before issuing a PR
+**Led by:** Luke
+
+## 2026-11-24 - Code steward: Eric -> Freddy
+**What:** Freddy takes over as code steward from Eric, following the rotation order in the 2026-11-21 entry (Luke -> Eric -> Freddy -> 哲葦).
+**Why:** Eric reviewed and merged 2 PRs, #16 (transfer-prepare skill) and #25 (PR template), which completes his turn.
+**Handoff notes:**
+- #20 (Freddy's transfer-prepare improvement) has changes requested. Freddy cannot review his own PR, so Eric finishes that review, and Che-Wei also needs to agree before it is approved.
+- #22 (rule to check existing issues and PRs before starting work) is open and needs a reviewer.
+- #29 (AI usage guidelines update) is open and not reviewed yet. Its DECISIONS.md entry repeats the title of the previous entry, it has no related issue, and its AI Usage fields are not filled in.
+- #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
+- Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
+**Led by:** Eric
+
 ## 2026-11-23 - Check existing issues and PRs before starting work
 **What:** Before starting any task, check both the open and closed issues and PRs to see whether someone has already started or finished the same work. If the work is already in progress, coordinate with that person instead of starting a separate version. If not, open an issue (or use the existing one), assign it to yourself before starting, and link it from the PR.
 **Why:** #16 (Che-Wei) and #20 (Freddy) both implemented `skills/transfer-prepare/SKILL.md` without knowing about each other. Issue #12 had no assignee, and #19 was opened after #16, so neither of them could see the overlap. #20 then had to be reworked into an improvement of the merged file.
