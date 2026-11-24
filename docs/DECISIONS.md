@@ -56,8 +56,9 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** Eric reviewed and merged 2 PRs, #16 (transfer-prepare skill) and #25 (PR template), which completes his turn.
 **Handoff notes:**
 - #20 (Freddy's transfer-prepare improvement) has changes requested. Freddy cannot review his own PR, so Eric finishes that review, and Che-Wei also needs to agree before it is approved.
-- #22 (rule to check existing issues and PRs before starting work) is open and needs a reviewer.
-- #29 (AI usage guidelines update) is open and not reviewed yet. Its DECISIONS.md entry repeats the title of the previous entry, it has no related issue, and its AI Usage fields are not filled in.
-- #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
+- Freddy's two steward PRs are #29 and #22. #29 must be reviewed in this turn, because it is Che-Wei's own PR and Che-Wei is the next steward.
+  - #29 (AI usage guidelines update): its DECISIONS.md entry repeats the title of the previous entry, it has no related issue, and its AI Usage fields are not filled in.
+  - #22 (rule to check existing issues and PRs before starting work).
+- #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are left for Che-Wei's turn, and he is already set as their reviewer. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
 - Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
 **Led by:** Eric
