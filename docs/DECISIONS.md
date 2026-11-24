@@ -45,3 +45,8 @@ Why: The course requires every team member be code steward at least twice accros
 **What:** I implement `transfer-prepare` as a single agent skill under `skills/transfer-prepare/`. It gathers information from chat history, Git history, meeting notes, and the giver's notes. The skill extracts the Why (decisions and reasons) and What (completed work, current status, and next steps), tracks sources, and marks missing or conflicting information as Open Questions instead of fabricating. It then generates a handoff draft following the shared `skills/HANDOFF_TEMPLATE.md`. The Quiz section is left as Pending for the separate `transfer-quiz` skill.
 **Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
 **Led by:** Che-Wei
+
+## 2026-11-24 - Revise test cases
+**What:** The new test cases cover 3 skills (`transfer-prepare`, `transfer-quiz`, `transfer-review`), each with 3 types (functionality, integration, security). The testing pipeline changed from autonomous pipeline to AI-human collaboration.
+**Why:** The first version tests the failure cases on different test cases and lack of integration tests. Additionally, the tests are difficult to run by a fixed algorithm. A better way is asking the AI to evaluate by itself, then human verify as the second check.
+**Led by:** Luke
