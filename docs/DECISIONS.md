@@ -50,3 +50,14 @@ Why: The course requires every team member be code steward at least twice accros
   * Add a notes section for reviewer
 **Why:** Lab 12 provides a PR template which includes some information that is valuable to be recorded and consider before issuing a PR
 **Led by:** Luke
+
+## 2026-11-24 - Code steward: Eric -> Freddy
+**What:** Freddy takes over as code steward from Eric, following the rotation order in the 2026-11-21 entry (Luke -> Eric -> Freddy -> 哲葦).
+**Why:** Eric reviewed and merged 2 PRs, #16 (transfer-prepare skill) and #25 (PR template), which completes his turn.
+**Handoff notes:**
+- #20 (Freddy's transfer-prepare improvement) has changes requested. Freddy cannot review his own PR, so Eric finishes that review, and Che-Wei also needs to agree before it is approved.
+- #22 (rule to check existing issues and PRs before starting work) is open and needs a reviewer.
+- #29 (AI usage guidelines update) is open and not reviewed yet. Its DECISIONS.md entry repeats the title of the previous entry, it has no related issue, and its AI Usage fields are not filled in.
+- #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
+- Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
+**Led by:** Eric
