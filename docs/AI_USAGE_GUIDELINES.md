@@ -2,8 +2,8 @@
 
 ## Section 1 - What AI tools we plan to use, and what we will use each for
 
-- We will ask Codex to evaluate team-written skills for correctness, clarity, missing edge cases, and consistency with project requirements. We will not ask Codex to generate a complete skill from scratch.
-- We will use Codex to test our skills with representative inputs and identify cases where they do not work as intended.
+- We will ask Codex to evaluate team-written skills for correctness, clarity, missing edge cases, and consistency with project requirements. We can use Codex to generate skills, but we must personally review, explain, and test them before merging.
+- We will use Codex to test our skills with representative inputs, followed by a manual review to identify cases where they do not work as intended.
 - We will use Codex to summarize team discussions, decisions, and work handoff information.
 - Codex will not decide whether the team has reached a consensus, assign responsibilities, or decide whether a handoff is complete. Team members must verify and approve the summary.
 
