@@ -77,3 +77,9 @@ Why: The course requires every team member be code steward at least twice accros
 - #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
 - Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
 **Led by:** Eric
+
+## 2026-11-26 - One CLAUDE.md for all agents, and a prompt card per skill
+**What:** `CLAUDE.md` holds the project instructions for agents and new engineers: what the project is, the rules every skill must keep, how to change a skill, and the team workflow. `AGENTS.md` only tells Codex to read `CLAUDE.md`. `docs/PROMPT_CARD.md` summarizes, for each skill, its purpose, input, output, what it is told to do, and where humans stay in control. Known failure modes will be added after the test runs in #38.
+**Why:** CP2 asks for documentation that lets a new engineer see what the AI does, what it was told to do, and how it fails. The team uses both Claude Code and Codex, and one shared file cannot drift apart the way two copies can. The card points to each `SKILL.md` instead of repeating it, so the prompt stays the single source.
+**Alternative rejected:** Separate `CLAUDE.md` and `AGENTS.md` with the same content (two copies to keep in sync). Writing the failure modes now (they would be guesses until the test cases have run).
+**Led by:** Eric
