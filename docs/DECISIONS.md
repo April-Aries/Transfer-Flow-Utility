@@ -77,3 +77,9 @@ Why: The course requires every team member be code steward at least twice accros
 - #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
 - Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
 **Led by:** Eric
+
+## 2026-11-26 - Install the skills by copying them into the project
+**What:** Users copy the whole `skills/` folder to the root of their project, then copy the three skill folders to `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex), and commit them so the giver and the receiver both have them. In this repository, those copies are ignored by Git, so `skills/` stays the only source.
+**Why:** Claude Code and Codex load skills only from those folders, and the skills read `skills/HANDOFF_TEMPLATE.md` from the project root, so both copies are needed. Copying works the same on Windows, macOS, and Linux and needs no change to the skills.
+**Alternative rejected:** Asking the agent to read `skills/<name>/SKILL.md` without installing (the skills are not triggered automatically and cannot be called by name). Committing symlinks from `.claude/skills/` to `skills/` (Windows does not create symlinks by default, and it does not help other projects).
+**Led by:** Eric
