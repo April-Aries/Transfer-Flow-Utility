@@ -41,6 +41,12 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** Keeping evidence collection, analysis, and draft generation in one skill simplifies the workflow and avoids unnecessary intermediate steps. Using the shared template ensures consistent output across skills, while source references and Open Questions help the giver verify the draft before handing it to the receiver.
 **Led by:** Che-Wei
 
+## 2026-11-23 - Quiz topics and a two-question minimum
+**What:** Every `transfer-quiz` question has a topic: the handoff section its answer comes from (`Why - Decisions`, `What - Completed Work`, `What - Current Status`, or `What - Next Steps`). The topic is shown in the question heading and in the Quiz result table. A quiz has 2-5 questions instead of 1-5, with at least one question on the Why and one on the What.
+**Why:** The CP2 peer review (#23) asked for sub-topics to make quiz results more specific, and pointed out that a quiz with one question was not covered by the multiple choice rule. A handoff must transfer both the Why and the What, so one question cannot check both, and the topics show which of the two the receiver understood.
+**Alternative rejected:** A score per topic (with at most 5 questions, each topic has only one or two questions, and each question is already passed or not). A fixed number of questions (forces extra questions on small handoffs).
+**Led by:** Eric
+
 ## 2026-11-23 - Update AI_USAGE_GUIDELINES.md
 **What:** I updated `docs/AI_USAGE_GUIDELINES.md` to allow Codex to generate skills, but require team members to review, explain, and test the results before merging. We also added a manual review step after Codex testing to identify errors or unexpected behavior that AI might miss.
 **Why:** AI-generated skills can improve development efficiency, but relying only on AI for generation and testing may overlook errors. Human review helps ensure that team members understand the implementation and that the results meet project requirements.
