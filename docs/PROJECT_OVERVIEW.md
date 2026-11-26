@@ -16,7 +16,7 @@ A piece of work is done only when every applicable item below is true.
 
 **All work**
 
-- The work is tracked by a GitHub Issue, and the PR links to it.
+- The work is tracked by a GitHub Issue, and the PR links to it. Before starting, the author checked open and closed issues and PRs for the same work, and assigned the issue to themselves (see `DECISIONS.md`, 2026-11-23).
 - The PR template is fully filled in, including AI Usage and Human verification. The Decision section is filled in whenever the PR makes a significant choice.
 - At least one teammate other than the author has reviewed the actual result, such as the rendered document or the running feature, and approved the PR.
 - Related documents, such as `README.md` and `DECISIONS.md`, are updated to match the change.

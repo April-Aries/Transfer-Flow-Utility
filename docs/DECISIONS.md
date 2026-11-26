@@ -83,3 +83,9 @@ Why: The course requires every team member be code steward at least twice accros
 - #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
 - Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
 **Led by:** Eric
+
+## 2026-11-23 - Check existing issues and PRs before starting work
+**What:** Before starting any task, check both the open and closed issues and PRs to see whether someone has already started or finished the same work. If the work is already in progress, coordinate with that person instead of starting a separate version. If not, open an issue (or use the existing one), assign it to yourself before starting, and link it from the PR.
+**Why:** #16 (Che-Wei) and #20 (Freddy) both implemented `skills/transfer-prepare/SKILL.md` without knowing about each other. Issue #12 had no assignee, and #19 was opened after #16, so neither of them could see the overlap. #20 then had to be reworked into an improvement of the merged file.
+**Alternative rejected:** Coordinating only in the group chat (messages are easy to miss and leave no record in the repo).
+**Led by:** Eric
