@@ -89,3 +89,9 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** #16 (Che-Wei) and #20 (Freddy) both implemented `skills/transfer-prepare/SKILL.md` without knowing about each other. Issue #12 had no assignee, and #19 was opened after #16, so neither of them could see the overlap. #20 then had to be reworked into an improvement of the merged file.
 **Alternative rejected:** Coordinating only in the group chat (messages are easy to miss and leave no record in the repo).
 **Led by:** Eric
+
+## 2026-11-27 - Add a single entry point for the handoff workflow
+**What:** Add `transfer-flow` to coordinate `transfer-prepare`, `transfer-quiz`, and `transfer-review`, keeping detailed rules in each skill and requiring review before Take mode.
+**Why:** Users need one entry point to follow the handoff workflow without manually switching skills or duplicating their rules.
+**Alternative rejected:** Reimplementing the three skills inside the entry-point skill.
+**Led by:** Freddy
