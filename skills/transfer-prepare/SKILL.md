@@ -54,7 +54,7 @@ Start with the project directory structure and README. Then inspect documents, s
 - If sources conflict, preserve each claim with its source for the giver to clarify.
 
 ### C3. Draft the handoff document
-Read `../HANDOFF_TEMPLATE.md`, relative to this skill directory.
+Read `skills/HANDOFF_TEMPLATE.md` at the root of the target project.
 
 - Save the draft as `handoffs/YYYY-MM-DD-<topic>.md` under the target project directory.
 - Preserve the template's section names and source formats. Fill in the header and the decisions, completed work, current status, and next steps from the available evidence.
@@ -76,7 +76,7 @@ Read `../HANDOFF_TEMPLATE.md`, relative to this skill directory.
 Use this mode both before the PR, when the giver corrects the draft and answers Open Questions, and after the PR is opened, when the giver answers the receiver's questions. Always edit the existing document. Never regenerate it.
 
 ### U1. Collect the items to handle
-Read the document and `../HANDOFF_TEMPLATE.md`, relative to this skill directory. Then collect:
+Read the document and `skills/HANDOFF_TEMPLATE.md` at the root of the target project. Then collect:
 
 - Corrections and answers that the giver gives in the request or the conversation.
 - Open Questions that are still unchecked (`- [ ]`).
@@ -91,7 +91,7 @@ Read the document and `../HANDOFF_TEMPLATE.md`, relative to this skill directory
 ### U3. Edit the document in place
 
 - Change only the parts that the items affect. Do not reorder sections or rewrite unaffected text. Keep existing identifiers such as `D1` and `OQ1`. New decisions and Open Questions take the next unused number.
-- Write each answer into the related section with its source: `giver` for the giver's own words, or the cited source. For a resolved Open Question, change `- [ ]` to `- [x]` and add the answer, as the comment in the template's Open Questions section says.
+- Write each answer into the related section with its source: `giver` for the giver's own words, or the cited source. For a resolved Open Question, change `- [ ]` to `- [x]` and add the answer after the question, as the comment in the template's Open Questions section says: `- [x] **OQ1.** <question> Answer: <answer> (Source: <source>)`.
 - When the giver says an item is wrong, replace it. Do not keep the wrong version next to the correction. When the correction conflicts with a source, keep each claim with its source as an Open Question, as in [C4](#c4-check-and-present-the-draft).
 - A receiver's question that the giver cannot answer yet becomes a new unchecked Open Question that links to the comment.
 - When an answer relies on a newer commit than the version recorded in Scope or Current Status, update the recorded version.
