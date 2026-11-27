@@ -23,7 +23,7 @@ Two people take part: the **giver**, who hands off the work, and the **receiver*
 | 4 | Giver | Optional: the agent checks the document for missing sources, contradictions, and quiz problems | `transfer-review` |
 | 5 | Giver | The giver commits the document, pushes, and opens a PR with the receiver as reviewer | (by hand) |
 | 6 | Both | The receiver comments on unclear points in the PR. The giver updates the document and the quiz. Repeat until nothing is unclear | `transfer-quiz` (Generate mode, revision) |
-| 7 | Receiver | The receiver takes the quiz. The agent explains wrong answers, or sends unclear points back to the giver as PR comments | `transfer-quiz` (Take mode) |
+| 7 | Receiver | The receiver takes the quiz. The agent explains wrong answers or drafts PR comments for unclear points, posting them only after the receiver confirms | `transfer-quiz` (Take mode) |
 | 8 | Receiver | When the quiz has passed, the receiver approves the PR | (by hand) |
 
 The full list of skills is in the [Skill Index](./skills/SKILL_INDEX.md), and the document format is in [`skills/HANDOFF_TEMPLATE.md`](./skills/HANDOFF_TEMPLATE.md).
