@@ -90,6 +90,12 @@ Why: The course requires every team member be code steward at least twice accros
 **Alternative rejected:** Coordinating only in the group chat (messages are easy to miss and leave no record in the repo).
 **Led by:** Eric
 
+## 2026-11-26 - Install the skills by copying them into the project
+**What:** Users copy the whole `skills/` folder to the root of their project, then copy the three skill folders to `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex), and commit them so the giver and the receiver both have them. In this repository, those copies are ignored by Git, so `skills/` stays the only source.
+**Why:** Claude Code and Codex load skills only from those folders, and the skills read `skills/HANDOFF_TEMPLATE.md` from the project root, so both copies are needed. Copying works the same on Windows, macOS, and Linux and needs no change to the skills.
+**Alternative rejected:** Asking the agent to read `skills/<name>/SKILL.md` without installing (the skills are not triggered automatically and cannot be called by name). Committing symlinks from `.claude/skills/` to `skills/` (Windows does not create symlinks by default, and it does not help other projects).
+**Led by:** Eric
+
 ## 2026-11-26 - One CLAUDE.md for all agents, and a prompt card per skill
 **What:** `CLAUDE.md` holds the project instructions for agents and new engineers: what the project is, the rules every skill must keep, how to change a skill, and the team workflow. `AGENTS.md` only tells Codex to read `CLAUDE.md`. `docs/PROMPT_CARD.md` summarizes, for each skill, its purpose, input, output, what it is told to do, and where humans stay in control. Known failure modes will be added after the test runs in #38.
 **Why:** CP2 asks for documentation that lets a new engineer see what the AI does, what it was told to do, and how it fails. The team uses both Claude Code and Codex, and one shared file cannot drift apart the way two copies can. The card points to each `SKILL.md` instead of repeating it, so the prompt stays the single source.
