@@ -17,7 +17,7 @@ Prompt: [`skills/transfer-prepare/SKILL.md`](../skills/transfer-prepare/SKILL.md
 |---|---|
 | **Purpose** | Draft a handoff document that covers both the Why and the What, so the giver does not start from a blank page. |
 | **Run by** | The giver, at the start of a handoff. |
-| **Input** | Chat logs, meeting notes, documents, and the giver's notes as `.txt` or `.md` files; Git history of the related branch, commits, or paths. |
+| **Input** | From the giver: the handoff scope, and who the giver and the receiver are. Chat logs, meeting notes, documents, and the giver's notes as `.txt` or `.md` files; Git history of the related branch, commits, or paths. |
 | **Output** | A new file `handoffs/YYYY-MM-DD-<topic>.md` with all seven template sections. The Quiz section is left as `Pending`. |
 
 **What it is told to do**
