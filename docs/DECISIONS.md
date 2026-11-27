@@ -101,3 +101,8 @@ Why: The course requires every team member be code steward at least twice accros
 **Why:** CP2 asks for documentation that lets a new engineer see what the AI does, what it was told to do, and how it fails. The team uses both Claude Code and Codex, and one shared file cannot drift apart the way two copies can. The card points to each `SKILL.md` instead of repeating it, so the prompt stays the single source.
 **Alternative rejected:** Separate `CLAUDE.md` and `AGENTS.md` with the same content (two copies to keep in sync). Writing the failure modes now (they would be guesses until the test cases have run).
 **Led by:** Eric
+
+## 2026-11-27 - Add Overall handoff scope to transfer-prepare
+**What:** Updated `skills/transfer-prepare/SKILL.md` to support an Overall (entire project) handoff scope, in addition to specific tasks, features, branches, commits, or files. The skill now lets the giver choose a scope when it is unclear and skips unnecessary questions when the scope is already specified. Overall mode covers the project's major components, decisions, work status, and next steps while keeping Git version information separate.
+**Why:** The previous design focused on handing off specific parts of a project, but users may also need to transfer the entire project context. Adding an Overall option improves flexibility and user experience while preventing confusion between the handoff scope and Git branches.
+**Led by:** Che-Wei
