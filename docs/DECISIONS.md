@@ -47,6 +47,12 @@ Why: The course requires every team member be code steward at least twice accros
 **Alternative rejected:** A score per topic (with at most 5 questions, each topic has only one or two questions, and each question is already passed or not). A fixed number of questions (forces extra questions on small handoffs).
 **Led by:** Eric
 
+## 2026-11-23 - Check the quiz answer key against the giver's answers
+**What:** In Generate mode, the giver first answers the drafted questions without seeing the answer key. Every answer that differs from the agent's draft key is resolved before the quiz is written: the key is fixed, the question is rewritten, or the giver adds the missing information to the document. Take mode now has explicit limits: one clarification of a question's wording, at most two explanations per wrong answer, and the receiver may send a question to the giver at any time. Step 0 finds the document first, then infers the mode from the Quiz section and the Giver and Receiver fields, and compares against the PR base branch instead of `main`.
+**Why:** The CP2 peer review (#23) suggested writing the answers only after the giver confirms, asked for a clear limit on how long the agent explains, and found that the skill asked the user for input even when a handoff document was available. When the giver answers first, the answer key reflects what the giver meant, and a mismatch shows an unclear question or a gap in the document before the receiver sees it.
+**Alternative rejected:** Showing the questions first and generating the answer key after the giver approves them (adds a round without checking anything). Asking the user for the mode every time (the document shows it in most cases).
+**Led by:** Eric
+
 ## 2026-11-23 - Update AI_USAGE_GUIDELINES.md
 **What:** I updated `docs/AI_USAGE_GUIDELINES.md` to allow Codex to generate skills, but require team members to review, explain, and test the results before merging. We also added a manual review step after Codex testing to identify errors or unexpected behavior that AI might miss.
 **Why:** AI-generated skills can improve development efficiency, but relying only on AI for generation and testing may overlook errors. Human review helps ensure that team members understand the implementation and that the results meet project requirements.
@@ -76,6 +82,12 @@ Why: The course requires every team member be code steward at least twice accros
 - #29 (AI usage guidelines update) is open and not reviewed yet. Its DECISIONS.md entry repeats the title of the previous entry, it has no related issue, and its AI Usage fields are not filled in.
 - #32 and #33 (transfer-quiz changes from the CP2 peer review, #23) are open. #33 is based on #32, so merge #32 first. Eric then changes the base of #33 to `cp2-deliverables`.
 - Several open PRs add an entry at the end of this file, so check after each merge that every entry is complete.
+**Led by:** Eric
+
+## 2026-11-23 - Check existing issues and PRs before starting work
+**What:** Before starting any task, check both the open and closed issues and PRs to see whether someone has already started or finished the same work. If the work is already in progress, coordinate with that person instead of starting a separate version. If not, open an issue (or use the existing one), assign it to yourself before starting, and link it from the PR.
+**Why:** #16 (Che-Wei) and #20 (Freddy) both implemented `skills/transfer-prepare/SKILL.md` without knowing about each other. Issue #12 had no assignee, and #19 was opened after #16, so neither of them could see the overlap. #20 then had to be reworked into an improvement of the merged file.
+**Alternative rejected:** Coordinating only in the group chat (messages are easy to miss and leave no record in the repo).
 **Led by:** Eric
 
 ## 2026-11-26 - One CLAUDE.md for all agents, and a prompt card per skill

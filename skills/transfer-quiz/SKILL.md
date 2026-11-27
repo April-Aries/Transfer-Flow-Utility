@@ -12,13 +12,17 @@ The skill has two modes:
 - **Generate mode**, run by the **giver**: draft the quiz and its answer key, and write them into the handoff document after the giver approves.
 - **Take mode**, run by the **receiver**: give the quiz, check the answers, make sure every mistake ends in real understanding, and record the result.
 
-## Step 0: Choose the mode and find the document
+## Step 0: Find the document and choose the mode
 
-1. Decide the mode from the user's request. If it is unclear whether the user is the giver or the receiver, ask. Do not guess.
-2. Find the handoff document. Handoff documents live in `handoffs/` and are named like `handoffs/2026-11-02-training-pipeline.md`.
+1. Find the handoff document. Handoff documents live in `handoffs/` and are named like `handoffs/2026-11-02-training-pipeline.md`.
    - If the user names a file or a PR, use it.
-   - Otherwise, list the handoff files changed on the current branch, for example with `git diff --name-only origin/main...HEAD -- handoffs/`. If exactly one file is found, confirm it with the user. If none or several are found, ask the user which one.
-3. Read the whole document before doing anything else. Its structure follows `skills/HANDOFF_TEMPLATE.md`.
+   - Otherwise, list the handoff files changed on the current branch, for example with `git diff --name-only origin/<base>...HEAD -- handoffs/`. `<base>` is the base branch of the current PR (`gh pr view --json baseRefName --jq .baseRefName`), or the repository's default branch if there is no PR. If no changed file is found, list all files in `handoffs/` instead.
+   - If exactly one file is found, tell the user which file you are using. If several are found, ask the user which one. If there are no handoff files at all, tell the user to create one first, for example with `transfer-prepare`, and stop.
+2. Read the whole document before doing anything else. Its structure follows `skills/HANDOFF_TEMPLATE.md`.
+3. Choose the mode. Use the user's request if it says whether they are the giver or the receiver. Otherwise, decide from the document:
+   - Compare the user's name (`git config user.name`) with the **Giver** and **Receiver** fields.
+   - If the Quiz section still says `Pending`, only Generate mode can run. If the user is the receiver, tell them that the giver has not written the quiz yet, and stop.
+   - Tell the user in one line which mode you chose and why, then continue. If you still cannot tell whether the user is the giver or the receiver, ask. Do not guess.
 
 ## Generate mode (giver)
 
@@ -77,12 +81,18 @@ Rules for open-ended questions:
 - Ask for one specific thing, such as the reason for one decision.
 - In the answer key, list the **key points** the answer must contain. An answer is correct only if it covers every key point in substance, in any wording.
 
-### G5. Review with the giver, then write
+### G5. Check the answers with the giver, then write
 
-1. Show the giver the full draft: questions, topics, options, answer key, and sources.
-2. Ask the giver to check each question: Is the answer key correct? Is this point really important? Is anything important missing? The giver may change, add, or remove questions. The giver's version is final, as long as it still follows G2 and G3. If a change leaves fewer than two questions, or no question on the Why or the What, tell the giver and ask how to fix it.
-3. Only after the giver approves, replace the content of the Quiz section with the quiz, using the format in [Quiz format](#quiz-format). Do not change any other section of the document.
-4. Tell the giver to commit and push the change to the handoff PR. Do not commit or push unless the giver asks you to.
+The giver decides what the right answers are. Check your draft answer key against the giver's own answers before you show it.
+
+1. Show the giver the questions, topics, and options only, without the answer key or sources. Ask the giver to answer every question, as the receiver will.
+2. Compare the giver's answers with your draft answer key. An open-ended answer matches if it covers the same key points. For each answer that does not match, find the reason with the giver and fix it:
+   - The giver's answer is right and your key is wrong: change the key.
+   - The question or its options can be read in more than one way: rewrite the question.
+   - The document does not say what the giver meant: ask the giver to add it to the document, as in G4.
+3. Show the giver the full quiz: questions, topics, options, answer key, and sources. Ask: Is this point really important? Is anything important missing? The giver may change, add, or remove questions. Check every changed or new question with steps 1 and 2 again. The giver's version is final, as long as it still follows G2 and G3. If a change leaves fewer than two questions, or no question on the Why or the What, tell the giver and ask how to fix it.
+4. Only after the giver approves, replace the content of the Quiz section with the quiz, using the format in [Quiz format](#quiz-format). Do not change any other section of the document.
+5. Tell the giver to commit and push the change to the handoff PR. Do not commit or push unless the giver asks you to.
 
 ### G6. Revise an existing quiz
 
@@ -108,7 +118,7 @@ Run this when the giver has changed the document, for example after a receiver's
 
 1. Show all selected questions in one message, with their options, exactly as written in the document. Do not add hints.
 2. Ask the receiver to answer all of them in one reply, for example `Q1: B, Q2: C, Q3: <short explanation>`.
-3. If the receiver asks what a question means, you may clarify the wording of the question. Do not answer questions about the content of the handoff until the receiver has submitted their answers.
+3. If the receiver asks what a question means, you may clarify the wording of the question once. Do not answer questions about the content of the handoff until the receiver has submitted their answers. If the receiver still cannot tell what the question asks after one clarification, the question is unclear: do not add hints, and send it to the giver as described in T4.
 
 ### T3. Check the answers
 
@@ -129,7 +139,7 @@ First decide **why** the answer is wrong. Compare the receiver's answer with the
 
 If you cannot tell which one it is, ask the receiver how they arrived at their answer, then decide.
 
-**If the receiver misunderstood:**
+**If the receiver misunderstood:** explain the point at most twice. Answer the receiver's follow-up questions as part of the current explanation. At any point, the receiver may ask to send the question to the giver instead of continuing. If they do, send it as described below.
 
 1. Explain the point. Quote or point to the passage in the document that supports the correct answer, explain why the correct answer is right, and explain why the receiver's answer is wrong.
 2. Ask the receiver to explain the point again **in their own words**. Do not accept a copy of your explanation or of the document. If the answer only repeats wording, ask them to put it differently or to apply it to the next step of the work.
@@ -137,15 +147,15 @@ If you cannot tell which one it is, ask the receiver how they arrived at their a
 4. If the restatement is still wrong, explain once more in a different way, and ask for one more restatement.
 5. If the receiver says they still do not understand, or the second restatement is still wrong, send the question to the giver as described below. The giver should explain the point in more detail in the document.
 
-**If the document is unclear, or the receiver still does not understand after explanation:** send the question to the giver.
+**If the document or the question is unclear, or the receiver still does not understand after explanation, or the receiver asks for the giver:** send the question to the giver.
 
 1. Draft a PR comment for the giver that states:
    - which question it is,
    - which part of the document caused the problem, quoted,
    - how the receiver understood it,
-   - for an unclear document: what is unclear; for a receiver who still does not understand: what the receiver still does not understand.
+   - for an unclear document or question: what is unclear; otherwise: what the receiver still does not understand.
 2. Show the draft to the receiver. Post it with `gh pr comment <PR number> --body-file <file>` only after the receiver confirms. If `gh` is not available or the PR is unknown, give the receiver the text to post themselves.
-3. Mark the question as **sent to giver**. The receiver takes this question again after the giver updates the document and revises the quiz (G6).
+3. Mark the question as **sent to giver**, with the reason: `document unclear`, `question unclear`, `still not understood`, or `receiver asked`. The receiver takes this question again after the giver updates the document and revises the quiz (G6).
 
 Do not explain an unclear point to the receiver as if the receiver made the mistake. The fix belongs in the document, so that the team's record is correct.
 
