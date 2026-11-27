@@ -18,11 +18,11 @@ Two people take part: the **giver**, who hands off the work, and the **receiver*
 | Step | Who | What happens | Skill |
 |---|---|---|---|
 | 1 | Giver | The agent drafts the handoff document from chat logs, Git history, notes, and the giver's input, and lists what it could not find as Open Questions | `transfer-prepare` |
-| 2 | Giver | The giver corrects the draft and answers the Open Questions in the document | (by hand) |
+| 2 | Giver | The giver corrects the draft and answers the Open Questions. The agent writes them into the same document after the giver approves the changes | `transfer-prepare` (Update mode), or by hand |
 | 3 | Giver | The agent drafts 2-5 questions on the Why and the What. The giver answers them first, then approves the quiz | `transfer-quiz` (Generate mode) |
 | 4 | Giver | Optional: the agent checks the document for missing sources, contradictions, and quiz problems | `transfer-review` |
 | 5 | Giver | The giver commits the document, pushes, and opens a PR with the receiver as reviewer | (by hand) |
-| 6 | Both | The receiver comments on unclear points in the PR. The giver updates the document and the quiz. Repeat until nothing is unclear | `transfer-quiz` (Generate mode, revision) |
+| 6 | Both | The receiver comments on unclear points in the PR. The agent reads the comments, writes the giver's answers into the same document, and drafts replies. The giver then revises the quiz. Repeat until nothing is unclear | `transfer-prepare` (Update mode), `transfer-quiz` (Generate mode, revision) |
 | 7 | Receiver | The receiver takes the quiz. The agent explains wrong answers or drafts PR comments for unclear points, posting them only after the receiver confirms | `transfer-quiz` (Take mode) |
 | 8 | Receiver | When the quiz has passed, the receiver approves the PR | (by hand) |
 
@@ -87,11 +87,11 @@ Start the agent in the root of the project. In Claude Code, call a skill with `/
    ```
 
    The draft is saved as `handoffs/YYYY-MM-DD-<topic>.md`. Export chat logs as `.txt` or `.md` files first, because the agent cannot read LINE or Discord directly.
-2. **Correct the draft.** Check every item against its source and fix what is wrong. For each Open Question, write the answer into the related section and change `- [ ]` to `- [x]`.
+2. **Correct the draft.** Check every item against its source. Run `transfer-prepare` again and tell the agent what is wrong and the answers to the Open Questions. It finds the existing draft, shows you every change before writing it into the same file, and marks the answered Open Questions as `- [x]`. You can also edit the file by hand.
 3. **Write the quiz.** Run `transfer-quiz`. The agent shows the questions without the answers and asks you to answer them first. Where your answer differs from its draft, it fixes the answer key, rewrites the question, or asks you to add the missing information to the document. It writes the quiz only after you approve it.
 4. **Check the document (optional).** Run `transfer-review` and fix the findings you agree with.
 5. **Open the PR.** Commit the document, push, and open a PR with the receiver as reviewer. The PR contains the quiz from the start.
-6. **Answer comments.** When the receiver comments, update the document, then run `transfer-quiz` again so it revises only the affected questions. Commit and push.
+6. **Answer comments.** When the receiver comments, run `transfer-prepare`. It reads the receiver's comments on the PR (or the ones you paste), asks you what it cannot find in the sources, and updates the same document after you approve the changes. Then run `transfer-quiz` again so it revises only the affected questions, and commit and push. After you push, the agent posts the replies to the comments that you approved.
 
 ### Receiver
 

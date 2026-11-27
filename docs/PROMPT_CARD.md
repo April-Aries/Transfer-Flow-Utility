@@ -15,22 +15,24 @@ Prompt: [`skills/transfer-prepare/SKILL.md`](../skills/transfer-prepare/SKILL.md
 
 | | |
 |---|---|
-| **Purpose** | Draft a handoff document that covers both the Why and the What, so the giver does not start from a blank page. |
-| **Run by** | The giver, at the start of a handoff. |
-| **Input** | From the giver: the handoff scope, and who the giver and the receiver are. Chat logs, meeting notes, documents, and the giver's notes as `.txt` or `.md` files; Git history of the related branch, commits, or paths. |
-| **Output** | A new file `handoffs/YYYY-MM-DD-<topic>.md` with all seven template sections. The Quiz section is left as `Pending`. |
+| **Purpose** | Draft a handoff document that covers both the Why and the What, so the giver does not start from a blank page, and keep that same document up to date as the giver corrects it and answers the receiver's questions. |
+| **Run by** | The giver, at the start of a handoff (Create mode), and after each round of corrections or receiver questions (Update mode). |
+| **Input** | From the giver: the handoff scope, and who the giver and the receiver are. Chat logs, meeting notes, documents, and the giver's notes as `.txt` or `.md` files; Git history of the related branch, commits, or paths. In Update mode, also the existing document, the giver's answers, and the receiver's comments on the PR. |
+| **Output** | Create mode: a new file `handoffs/YYYY-MM-DD-<topic>.md` with all seven template sections, and the Quiz section left as `Pending`. Update mode: changes to the same file, and draft replies to the PR comments. |
 
 **What it is told to do**
 
-- Ask the giver to clarify the scope if it is unclear.
-- Pair every fact with its exact source: a file path and lines, a commit hash, or a quoted message with speaker and time. Never invent paths, lines, or hashes.
+- Look for an existing handoff document first, pick Create or Update mode, and tell the giver which one.
+- Draft first, then ask all open questions in one message. Write `Unknown` for a giver or receiver that is not given, instead of guessing from Git authorship.
+- Pair every fact with its source in the template's formats. Record the inspected branch, HEAD commit, and whether uncommitted changes are included.
 - Ignore commits and messages that are not about the handoff.
-- Tell reported progress apart from progress that the evidence confirms.
-- When a reason is missing, add an Open Question instead of guessing. When sources conflict, list every claim with its source and do not pick one.
-- Do not overwrite an existing handoff file without the giver's approval.
-- At the end, ask the giver to check the draft against the sources, fix errors, and fill in the gaps.
+- Tell reported progress, code observations, and execution results apart. Do not claim that something runs unless a result shows it.
+- When a reason or rejected alternative is missing, write `Unknown` or add an Open Question instead of guessing. When sources conflict, list every claim with its source and do not pick one.
+- Label its own suggestions in Next Steps as "Suggested, not agreed".
+- In Create mode, stop instead of overwriting an existing file.
+- In Update mode, edit only the affected parts of the same document, keep the existing IDs, never write an answer the giver did not give and no source supports, and show every change before writing it. Post replies to PR comments only after the giver confirms them and has pushed the update.
 
-**Human control points:** the giver chooses the scope and the inputs, corrects every item, and answers the Open Questions.
+**Human control points:** the giver chooses the scope and the inputs, approves every change to the document, answers the Open Questions and the receiver's questions, and confirms each PR reply before it is posted.
 
 ## `transfer-quiz`
 
