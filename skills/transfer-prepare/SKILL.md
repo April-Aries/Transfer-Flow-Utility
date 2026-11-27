@@ -12,7 +12,7 @@ Help the giver hand off both Why (decisions and their reasons) and What (complet
 ## Inputs
 
 - Target project: Use the directory specified by the user. Otherwise, inspect the current working directory to identify the target project. If the target is unclear, ask the user rather than assuming that the Git repository root is the target project.
-- Handoff scope: The task, feature, branch, or paths being handed off. Use an explicitly specified scope without asking for confirmation again. Only label the scope provisional when it must be inferred from incomplete information, and ask for confirmation after presenting the draft.
+- Handoff scope: The part of the target project being handed off. Supported choices are **Overall (entire project)**, a specific task/feature, a specific branch/commit, or specific files/directories. A chosen branch/commit also identifies the version to inspect. Use a scope explicitly provided by the giver without asking again. If no scope is specified, offer these choices once rather than assuming a single feature or choosing Overall automatically.
 - Giver and receiver: Use the identities explicitly provided by the user. If either is missing, write `Unknown`; do not infer identities from Git authorship. If the user says a participant has not been decided, retain `Unknown` without asking for a name again.
 - Additional materials: Project documents, source code, or other relevant materials not stored in Git.
 - Chat history, meeting notes, and the giver's own notes: `.txt` or `.md` files provided by the giver, when available.
@@ -20,15 +20,27 @@ Help the giver hand off both Why (decisions and their reasons) and What (complet
 ## Workflow
 
 ### 1. Establish the handoff scope
-Identify the target project and the handoff scope from the request and available project information. Once the target project is identifiable, proceed with the available evidence and collect missing information for one consolidated set of questions after the draft. Do not interrupt drafting to ask for missing participant identities or decision reasons. If the target project itself cannot be identified, ask the user before proceeding.
+Identify the target project from the request and available project information. If the target project cannot be identified, ask the giver before proceeding.
+
+Determine which **handoff scope** the giver wants:
+1. **Overall (entire project):** Hand off the project's major components, decisions, completed work, current status, issues, and next steps rather than a single task or feature.
+2. **Specific task/feature:** Hand off one named task or feature and its relevant dependencies.
+3. **Specific branch/commit:** Hand off the work represented by a selected Git branch or commit.
+4. **Specific files/directories:** Hand off work related to selected paths.
+
+- If the giver has already specified a scope (including "overall", "all", or "entire project"), use it directly without asking again.
+- If the scope is not specified and cannot be determined clearly from the request, present the four choices above and ask the giver to select one before drafting. Do not silently default to Overall or to a specific feature.
+- Do not interrupt drafting to ask for missing participant identities or decision reasons. Once the scope is chosen, use the available evidence and gather remaining handoff-relevant questions into one consolidated set after the draft.
 
 ### 2. Inspect the project and materials
-Start with the project directory structure and README. Then inspect documents, source code, Git history, and additional materials relevant to the agreed scope.
+Start with the project directory structure and README. Then inspect documents, source code, Git history, and additional materials relevant to the chosen handoff scope.
 
-- Not every message or commit is related to the handoff scope. Ignore unrelated messages and changes rather than incorporating them into the draft.
+- For **Overall**, inspect the project's major components and relevant evidence across the target project at the primary version. Cover high-level decisions, work status, known issues, and next steps across components. Skip generated/vendor files and duplicate or unrelated noise. If the project is too large to inspect fully, state what was and was not inspected; do not call the result comprehensive without sufficient coverage.
+- For a specific task, branch/commit, or path scope, focus on the selected work and any dependencies needed to make the handoff understandable.
+- Include only messages and commits relevant to the chosen scope; do not copy unrelated discussion or changes into the draft.
 - Record sources for factual claims using the shared template's source formats.
 - For a Git-backed project, record the inspected branch (or detached HEAD), HEAD commit, and whether the working tree has uncommitted changes. State whether the draft includes those changes; do not present the working tree as identical to the recorded commit when it differs. If Git metadata is unavailable, mark it as unavailable rather than inventing a version.
-- Use the user-specified branch or commit as the primary version; otherwise, use the current working tree. Do not scan other branches by default. Consult another version only when requested or when a relevant source explicitly requires it to understand the handoff, and label that evidence with its ref or commit.
+- Use the user-specified branch or commit as the primary version; otherwise, use the current working tree. **Overall refers to the entire project at the primary version, not automatically to every Git branch or every historical version.** Do not scan other branches by default. Consult another version only when requested or when a relevant source explicitly requires it to understand the handoff, and label that evidence with its ref or commit.
 - Differences between branches or historical versions are not automatically conflicting claims. Raise a version-selection question only when choosing between versions materially affects the handoff and the request does not already resolve that choice.
 - Treat PR status, review status, and ownership mentioned in commits or documents as historical records. Include the source date or commit and state that current status is unverified unless independently supported by current evidence. Local remote-tracking refs reflect the last fetch, not necessarily the current remote state.
 - Distinguish completed work from unfinished work. Mark progress that no source confirms as "(reported, not verified)".
@@ -43,7 +55,7 @@ Read `../HANDOFF_TEMPLATE.md`, relative to this skill directory.
 - Save the draft as `handoffs/YYYY-MM-DD-<topic>.md` under the target project directory.
 - Preserve the template's section names and source formats. Fill in the header and the decisions, completed work, current status, and next steps from the available evidence.
 - In Next Steps, distinguish source-backed remaining tasks from your own recommendations. Cite the source for established tasks. Include a recommendation only when it directly helps the handoff and label it "Suggested, not agreed"; do not present general repository cleanup or process improvements as assigned work.
-- Record the inspected version and treatment of uncommitted changes in Scope or Current Status without adding template sections. Clearly label any provisional scope and keep missing participant identities as `Unknown`.
+- In the template's Scope field, state the chosen handoff scope explicitly (for example, `Overall (entire project)` or `Feature: login`) and record the inspected version and treatment of uncommitted changes in Scope or Current Status without adding template sections. If Overall is selected, summarize project-wide status by major component rather than describing only one feature. Clearly label any provisional scope and keep missing participant identities as `Unknown`.
 - Add missing or conflicting information to Open Questions using the template's unchecked items. Include each conflicting claim and its source.
 - Keep questions focused on gaps that affect understanding, continuation, or verification of the handed-off work. Group related gaps, omit questions already answered by the request, and do not turn every undocumented alternative or incidental difference into a question.
 - Leave `Corrected by` and `Confirmed by` as `Pending`. Leave the Quiz section pending for `transfer-quiz`.
