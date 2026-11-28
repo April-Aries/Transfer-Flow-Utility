@@ -116,7 +116,7 @@ Why: The course requires every team member be code steward at least twice accros
 | #34 | Che-Wei | Luke |  |
 | #36 | Eric | Freddy | Code steward changed |
 | #37 | Luke | Freddy |  |
-| #39 | Che-Wei | Eric |  |
+| #39 | Eric | Che-Wei |  |
 | #42 | Eric | Che-Wei |  |
 | #43 | Eric | Luke |  |
 | #48 | Freddy | Eric |  |
